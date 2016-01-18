@@ -12,8 +12,9 @@ angular
   .module('bestOfYoutubeApp', [
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'firebase'
+    'firebase',
+    'ngMaterial',
+    'ngMdIcons'
   ])
   .config(function ($routeProvider) {
     $routeProvider

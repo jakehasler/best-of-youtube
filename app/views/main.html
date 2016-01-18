@@ -1,7 +1,6 @@
 <div class="jumbotron">
   <h1>The Best of YouTube</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Finding YouTube's funniest videos.
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#/">Get Started! <span class="glyphicon glyphicon-ok"></span></a></p>
@@ -13,19 +12,31 @@
   <ul>
     <li ng-repeat="url in urls">
       <!-- edit a message -->
-        <input class="editBox" ng-model="url.text" ng-change="urls.$save(urls)" />
+        <input class="editBox" ng-model="url.title" ng-change="urls.$save(urls)" />
         <!-- delete a message -->
-        <button ng-click="urls.$remove(url)">Delete Message</button>
+        <button ng-click="urls.$remove(url)">Delete Video</button>
     </li>
   </ul>
 
-  <form ng-submit="addUrl(); getYoutube(newUrlText);">
+  <div class="panel panel-default" ng-repeat="url in urls">
+    <div class="panel-body">
+      <img class="panelImage" src="{{ url.imgUrl }}">
+      <a href="{{ url.url }}" target="_blank"><h3>{{ url.title }}</h3></a>
+      <div class="statBox">
+        <p>Views: {{ url.viewCount | number }}</p>
+        <p>Likes: {{ url.likeCount | number }}</p>
+      </div>
+      <ng-md-icon ng-click="upvote(url)" icon="favorite" style="color: blue; float: right;"></ng-md-icon>
+    </div>
+  </div>
+
+  <form ng-submit="getYoutube(newUrlText)">
       <input ng-model="newUrlText" />
       <button type="submit">Add YouTube URL</button>
   </form>
 
   <input type="text" ng-model="data.text"/>
-  <h5>You said: {{ data.text }}</h5>
+  <p>You said: {{ data.text }}</p>
 
   <h4>HTML5 Boilerplate</h4>
   <p>

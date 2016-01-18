@@ -24,11 +24,17 @@ angular.module('bestOfYoutubeApp')
 
     $scope.urls = $firebaseArray(ref);
 
-    $scope.addUrl = function() {
-	    $scope.urls.$add({
-	      text: $scope.newUrlText
-	    });
-	 };
+
+    $scope.upvote = function(object) {
+    	console.log(object.$id);
+    	var item = $scope.urls.$getRecord(object.$id);
+    	item.upvotes++;
+    	$scope.urls.$save(item).then(function() {
+			console.log($scope.urls);
+    	})
+    	
+    }
+
 
 	 var getParameterByName = function(name) {
 	 	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -68,6 +74,18 @@ angular.module('bestOfYoutubeApp')
 
 		$http.get(url).success(function(res) {
 			console.log(res);
+			var youtube = {
+				title: res.items[0].snippet.title,
+				imgUrl: res.items[0].snippet.thumbnails.medium.url,
+				viewCount: res.items[0].statistics.viewCount,
+				likeCount: res.items[0].statistics.likeCount,
+				url: youtubeUrl,
+				upvotes: 0
+			};
+
+			$scope.urls.$add(youtube);
+			$scope.newUrlText = "";
+
 		});
 	}
 

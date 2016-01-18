@@ -1,7 +1,7 @@
 {
   "name": "the-best-of-youtube",
   "description": "A Social Activity to determine Youtube's funniest video.",
-  "author": "Jake Hasler <jakehasler@gmail.com",
+  "author": "Jake Hasler <jakehasler@gmail.com>",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
