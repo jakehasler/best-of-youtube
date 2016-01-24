@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" /> -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
     <!-- endbower -->
@@ -23,42 +23,37 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-  
-            <a class="navbar-brand" href="#/">The Best of YouTube</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
+    <md-content>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" aria-label="Settings">
+            <ng-md-icon icon="menu" style="fill: #ffffff;" size="25"></ng-md-icon>
+          </md-button>
+          <h2>
+            <span>The Best Of YouTube</span>
+          </h2>
+          <span flex></span>
+          <md-button class="md-icon-button" aria-label="Favorite">
+            <ng-md-icon icon="favorite" style="color: greenyellow;"></ng-md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="More">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+          </md-button>
         </div>
-      </div>
-    </div>
+      </md-toolbar>
+    </md-content>
 
-    <div class="container">
+    
     <div ng-view=""></div>
+    
+    
+    <div class="footer">
+      <div layout="row" layout-align="center center">
+            <h5>My Awesome Footer</h5>
+        </div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -96,6 +91,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/admin.js"></script>
+        <script src="scripts/controllers/group.js"></script>
         <!-- endbuild -->
 </body>
 </html>

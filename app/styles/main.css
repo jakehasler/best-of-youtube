@@ -93,6 +93,16 @@ p {
   display: inline-block;
 }
 
+
+md-card md-card-title md-card-title-media .md-media-md {
+        height: 112px;
+        width: 212px; 
+}
+
+#urlSubmit {
+  height: 40px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

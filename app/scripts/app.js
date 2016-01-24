@@ -33,6 +33,11 @@ angular
         controller: 'AdminCtrl',
         controllerAs: 'admin'
       })
+      .when('/group/:id', {
+        templateUrl: 'views/group.html',
+        controller: 'GroupIdCtrl',
+        controllerAs: 'group'
+      })
       .otherwise({
         redirectTo: '/'
       });
