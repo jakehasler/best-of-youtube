@@ -1,6 +1,11 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+	<div flex-xs flex-gt-xs="50" layout="column" layout-align="center center">
+		<h1>Group #{{ groupNumber }}</h1>
+	</div>
+</md-content>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
 	<div flex-xs flex-gt-xs="50" layout="column">
-	  <form name="urlSubmission" ng-submit="getYoutube(newUrlText)">
+	  <form name="urlSubmission" ng-submit="getYoutube(newUrlText, $event)">
 	    <div layout-gt-sm="row">
 	      <md-input-container class="md-block" flex-gt-sm>
 	        <label>YouTube URL</label>
@@ -30,7 +35,8 @@
 				<a href="{{ url.url }}" target="_blank">
 	        	<md-button class="md-fab md-raised" style="margin-right: 10px;" ><ng-md-icon icon="open_in_new" style="fill: #9E9D9D; "></ng-md-icon></md-button></a>
 	        	<md-button class="md-primary md-fab md-raised" ng-click="upvote(url, $event)"><ng-md-icon icon="star" style="fill: rgb(255,255,255);"></ng-md-icon></md-button>
-	        	<md-button class="md-warn md-fab md-raised md-hue-2" ng-click="remove(url, $event)"><ng-md-icon icon="delete" style="fill: rgb(255,255,255);"></ng-md-icon></md-button>
+	        	<md-button class="md-warn md-fab md-raised md-hue-2" ng-click="remove(url, $event)">
+	        	<md-tooltip md-direction="right">Delete</md-tooltip><ng-md-icon icon="delete" style="fill: rgb(255,255,255);"></ng-md-icon></md-button>
 			</md-card-actions>
 	      </md-card>
 	    </div>
