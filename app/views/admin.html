@@ -1,1 +1,31 @@
-<p>This is the admin view.</p>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+	<div flex-xs flex-gt-xs="50" layout="column" layout-align="center center">
+		<h1>Admin Panel</h1>
+	</div>
+</md-content>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+	<div flex-xs flex-gt-xs="50" layout="column">
+	  <form name="groupSubmission" ng-submit="addGroup(newGroup)">
+	    <div layout-gt-sm="row">
+	      <md-input-container class="md-block" flex-gt-sm>
+	        <label>Group Name</label>
+	        <input ng-model="newGroup">
+	      </md-input-container>
+		  <md-button id="urlSubmit" type="submit" class="md-raised md-primary">Group List</md-button>
+	    </div>
+	  </form>
+	</div>
+</md-content>
+<md-content>
+  <div flex-xs flex-gt-xs="55" style="margin: 0 auto;" layout="column" layout-align="center center">
+    <div class="dialog-demo-content"  layout="row" layout-wrap layout-margin>
+    <h2 style="display: block;">Choose Your Group</h2>
+    <md-button ng-repeat="group in groupNames" class="md-primary md-raised" flex="60"  flex-gt-md="auto">
+      <h3 style="display: inline-block">{{ group.$value }}</h3>
+      <md-button style="float: right;" ng-click="groupNames.$remove(group)" class="md-fab md-warn md-hue-2">
+		    <ng-md-icon icon="delete" style="fill: rgb(255,255,255);"></ng-md-icon>
+      </md-button>
+    </md-button>
+    </div>
+  </div>
+</md-content>

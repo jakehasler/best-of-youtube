@@ -1,53 +1,28 @@
-<div class="jumbotron">
-  <h1>The Best of YouTube</h1>
-  <p class="lead">
-    Finding YouTube's funniest videos.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Get Started! <span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  
-  <h4>Testing Firebase</h4>
-  <ul>
-    <li ng-repeat="url in urls">
-      <!-- edit a message -->
-        <input class="editBox" ng-model="url.title" ng-change="urls.$save(urls)" />
-        <!-- delete a message -->
-        <button ng-click="urls.$remove(url)">Delete Video</button>
-    </li>
-  </ul>
-
-  <div class="panel panel-default" ng-repeat="url in urls">
-    <div class="panel-body">
-      <img class="panelImage" src="{{ url.imgUrl }}">
-      <a href="{{ url.url }}" target="_blank"><h3>{{ url.title }}</h3></a>
-      <div class="statBox">
-        <p>Views: {{ url.viewCount | number }}</p>
-        <p>Likes: {{ url.likeCount | number }}</p>
-      </div>
-      <ng-md-icon ng-click="upvote(url)" icon="favorite" style="color: blue; float: right;"></ng-md-icon>
-    </div>
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+  <div flex-xs flex-gt-xs="80" layout="column" layout-align="center center">
+    <md-card>
+      <img src="images/b-o-y-header.png" alt="">
+    </md-card>
   </div>
+</md-content>
 
-  <form ng-submit="getYoutube(newUrlText)">
-      <input ng-model="newUrlText" />
-      <button type="submit">Add YouTube URL</button>
-  </form>
-
-  <input type="text" ng-model="data.text"/>
-  <p>You said: {{ data.text }}</p>
-
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<md-content>
+  <div flex-xs flex-gt-xs="55" style="margin: 0 auto;" layout="column" layout-align="center center">
+    <div class="dialog-demo-content" layout="row" layout-wrap layout-margin>
+    <h2 style="margin: 0 auto; margin-bottom: 15px;">Choose Your Group</h2>
+    <md-button ng-repeat="group in groups" href="/#/group/{{ group.$value }}"  class="md-primary md-raised" flex="100"  flex-gt-md="auto">
+      <h3 style="display: inline-block;">{{ group.$value }}</h3>
+      <md-button style="float: right;  background-color: greenyellow;" class="md-fab"> <ng-md-icon  icon="arrow_forward"></ng-md-icon></md-button>
+     
+    </md-button>
+    </div>
+    <ul>
+      <li ng-repeat="url in urls">
+        <!-- edit a message -->
+          <input class="editBox" ng-model="url.title" ng-change="urls.$save(urls)" />
+          <!-- delete a message -->
+          <button ng-click="urls.$remove(url)">Delete Video</button>
+      </li>
+    </ul>
+  </div>
+</md-content>

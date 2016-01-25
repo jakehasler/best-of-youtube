@@ -17,23 +17,20 @@ angular.module('bestOfYoutubeApp')
 
     var ref = new Firebase("https://the-best-of-youtube.firebaseio.com/urls");
     var ref2 = new Firebase("https://the-best-of-youtube.firebaseio.com/data");
-
     var syncObject = $firebaseObject(ref2);
 
     syncObject.$bindTo($scope, "data");
 
     $scope.urls = $firebaseArray(ref);
 
+    var ref3 = new Firebase("https://the-best-of-youtube.firebaseio.com/config");
 
-    $scope.upvote = function(object) {
-    	console.log(object.$id);
-    	var item = $scope.urls.$getRecord(object.$id);
-    	item.upvotes++;
-    	$scope.urls.$save(item).then(function() {
-			console.log($scope.urls);
-    	})
-    	
-    }
+    var syncObject = $firebaseObject(ref3);
+
+    syncObject.$bindTo($scope, "config");
+
+    $scope.groups = $firebaseArray(ref3);
+
 
 
 	 var getParameterByName = function(name) {

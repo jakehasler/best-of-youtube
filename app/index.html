@@ -16,6 +16,8 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <base href="/">
   </head>
   <body ng-app="bestOfYoutubeApp">
     <!--[if lte IE 8]>
@@ -26,8 +28,8 @@
     <md-content>
       <md-toolbar>
         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" aria-label="Settings">
-            <ng-md-icon icon="menu" style="fill: #ffffff;" size="25"></ng-md-icon>
+          <md-button href="/#/" class="md-icon-button" aria-label="Settings">
+            <ng-md-icon icon="home" style="fill: #ffffff;" size="25"></ng-md-icon>
           </md-button>
           <h2>
             <span>The Best Of YouTube</span>
@@ -49,7 +51,7 @@
     
     <div class="footer">
       <div layout="row" layout-align="center center">
-            <h5>My Awesome Footer</h5>
+            <h5>Best of YouTube</h5>
         </div>
     </div>
 

@@ -97,11 +97,18 @@ p {
 md-card md-card-title md-card-title-media .md-media-md {
         height: 112px;
         width: 212px; 
+        margin-left: 15px;
 }
 
 #urlSubmit {
   height: 40px;
 }
+
+.dialog-demo-content h2 {
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

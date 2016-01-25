@@ -10,16 +10,18 @@
 angular.module('bestOfYoutubeApp')
   .controller('GroupIdCtrl', function ($scope, $http, $firebaseObject, $firebaseArray, $mdDialog, $window, $routeParams) {
 
-  	var ref = new Firebase("https://the-best-of-youtube.firebaseio.com/urls");
-    var ref2 = new Firebase("https://the-best-of-youtube.firebaseio.com/data");
+  	var firebaseUrl = "https://the-best-of-youtube.firebaseio.com/groups/" + $routeParams.id.toLowerCase(); 
+  	console.log(firebaseUrl);
+  	var ref = new Firebase(firebaseUrl);
+    var syncObject = $firebaseObject(ref);
 
-    var syncObject = $firebaseObject(ref2);
+    syncObject.$bindTo($scope, $routeParams.id.toLowerCase());
 
-    syncObject.$bindTo($scope, "data");
+    $scope.groups = $firebaseArray(ref);
 
-    $scope.urls = $firebaseArray(ref);
+    console.log($scope.groups);
 
-    $scope.groupNumber = $routeParams.id;
+    $scope.groupName = $routeParams.id;
 
     if(!parseInt(sessionStorage.getItem("upvotes"))) {
     	$window.sessionStorage.setItem("upvotes", 0);
@@ -41,10 +43,10 @@ angular.module('bestOfYoutubeApp')
 		    );
     	}
     	else {
-    		var item = $scope.urls.$getRecord(object.$id);
+    		var item = $scope.groups.$getRecord(object.$id);
 	    	item.upvotes++;
-	    	$scope.urls.$save(item).then(function() {
-				console.log($scope.urls);
+	    	$scope.groups.$save(item).then(function() {
+				console.log($scope.groups);
 	    	})
     	}
     		
@@ -62,7 +64,7 @@ angular.module('bestOfYoutubeApp')
           .cancel('No, Don\'t Do it');
 
         $mdDialog.show(confirm).then(function() {
-          $scope.urls.$remove(url);
+          $scope.groups.$remove(url);
 	      $scope.status = 'You decided to get rid of your debt.';
 	    }, function() {
 	      $scope.status = 'You decided to keep your debt.';
@@ -135,7 +137,7 @@ angular.module('bestOfYoutubeApp')
 			upvotes: 0
 		};
 
-		$scope.urls.$add(youtube);
+		$scope.groups.$add(youtube);
 		$scope.newUrlText = "";
 
 	});
