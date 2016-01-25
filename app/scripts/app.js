@@ -16,7 +16,7 @@ angular
     'ngMaterial',
     'ngMdIcons'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -38,9 +38,13 @@ angular
         controller: 'GroupIdCtrl',
         controllerAs: 'group'
       })
+      .when('/winner', {
+        templateUrl: 'views/winner.html',
+        controller: 'WinnerCtrl',
+        controllerAs: 'winner'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
-      $locationProvider.html5Mode(true);
   });

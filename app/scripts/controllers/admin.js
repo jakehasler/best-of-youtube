@@ -8,7 +8,7 @@
  * Controller of the bestOfYoutubeApp
  */
 angular.module('bestOfYoutubeApp')
-  .controller('AdminCtrl', function (ConfigOptions, $scope, $firebaseObject, $firebaseArray) {
+  .controller('AdminCtrl', function ($scope, $firebaseObject, $firebaseArray, $mdDialog) {
 
 
     var ref = new Firebase("https://the-best-of-youtube.firebaseio.com/config");
@@ -23,12 +23,43 @@ angular.module('bestOfYoutubeApp')
   		//ConfigOptions.addGroupName(groupName);
   		$scope.groupNames.$add(groupName);
   		$scope.newGroup = "";
-  		//console.log(ConfigOptions.totalGroups);
   	}
 
-  	$scope.groupList = ConfigOptions.groupNames;
+  	$scope.remove = function(group, ev) {
+    	//console.log(ev);
+    	var confirm = $mdDialog.confirm()
+          .title('Would you like to delete this video entry?')
+          .textContent('You will have to input the link again')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Yes, Delete')
+          .cancel('No, Don\'t Do it');
+
+        $mdDialog.show(confirm).then(function() {
+          $scope.groups.$remove(group);
+	      $scope.status = 'You decided to get rid of your debt.';
+	    }, function() {
+	      $scope.status = 'You decided to keep your debt.';
+	    });
+    }
 
 
+    $scope.generateBest = function() {
+    	var ref = new Firebase("https://the-best-of-youtube.firebaseio.com/groups");
+    	ref.once("value", function(snapshot) {
+    		snapshot.forEach(function(childSnapshot) {
+    			console.log(childSnapshot.key());
+    			console.log(childSnapshot.val());
+    		})
+    	})
+    	console.log($scope.groups);
+
+    	$scope.groups[3].forEach(function() {
+
+    		console.log(obj);
+    	}) 
+    
+    }
 
 
 

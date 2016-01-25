@@ -1,9 +1,9 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
 	<div flex-xs flex-gt-xs="50" layout="column" layout-align="center center">
-		<h1>Group {{ groupName }}</h1>
+		<h1>Group: {{ groupName }}</h1>
 	</div>
 </md-content>
-<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+<md-content class="md-padding" layout="row" layout-align="center center">
 	<div flex-xs flex-gt-xs="50" layout="column">
 	  <form name="urlSubmission" ng-submit="getYoutube(newUrlText, $event)">
 	    <div layout-gt-sm="row">
@@ -33,9 +33,9 @@
 	        </md-card-title>
 			<md-card-actions layout="row" layout-align="end center">
 				<a href="{{ group.url }}" target="_blank">
-		        	<md-button class="md-fab md-raised" style="margin-right: 10px; background-color: greenyellow;" >
+		        	<md-button class="md-fab md-raised" style="margin-right: 10px; background-color: #d6d6d6;" >
 		        		<md-tooltip md-direction="left">Open Video</md-tooltip>
-		        		<ng-md-icon icon="open_in_new" style="fill: #ffffff; "></ng-md-icon>
+		        		<ng-md-icon icon="open_in_new" style="fill: #646464; "></ng-md-icon>
 		        	</md-button>
 		        </a>
 	        	<md-button class="md-primary md-fab md-raised" ng-click="upvote(group, $event)">

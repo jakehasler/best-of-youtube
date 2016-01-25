@@ -100,6 +100,10 @@ md-card md-card-title md-card-title-media .md-media-md {
         margin-left: 15px;
 }
 
+.md-media-md img {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
 #urlSubmit {
   height: 40px;
 }

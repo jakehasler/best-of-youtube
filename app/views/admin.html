@@ -18,14 +18,19 @@
 </md-content>
 <md-content>
   <div flex-xs flex-gt-xs="55" style="margin: 0 auto;" layout="column" layout-align="center center">
-    <div class="dialog-demo-content"  layout="row" layout-wrap layout-margin>
     <h2 style="display: block;">Choose Your Group</h2>
-    <md-button ng-repeat="group in groupNames" class="md-primary md-raised" flex="60"  flex-gt-md="auto">
+    <div class="dialog-demo-content"  layout="row" layout-wrap layout-margin>
+    <md-button style="margin-left: auto; margin-right: auto;" ng-repeat="group in groupNames" class="md-primary md-raised" flex="60" flex-gt-md="auto">
       <h3 style="display: inline-block">{{ group.$value }}</h3>
-      <md-button style="float: right;" ng-click="groupNames.$remove(group)" class="md-fab md-warn md-hue-2">
+      <md-button style="float: right;" ng-click="remove(group, $event)" class="md-fab md-warn md-hue-2">
 		    <ng-md-icon icon="delete" style="fill: rgb(255,255,255);"></ng-md-icon>
       </md-button>
     </md-button>
     </div>
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    		<md-button style="background-color: #a5a5a5;" ng-click="generateBest()" class="md-primary md-raised" style="float: left;">Generate Best</md-button>
+    		<md-button ng-click="generateWinner()" class="md-raised md-primary" style="background-color: #28BE66;">Generate Winner</md-button>
+    </section>
   </div>
 </md-content>
