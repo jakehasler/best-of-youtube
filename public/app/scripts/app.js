@@ -43,6 +43,11 @@ angular
         controller: 'WinnerCtrl',
         controllerAs: 'winner'
       })
+      .when('/finals', {
+        templateUrl: 'views/finals.html',
+        controller: 'FinalsCtrl',
+        controllerAs: 'finals'
+      })
       .otherwise({
         redirectTo: '/'
       });

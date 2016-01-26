@@ -55,7 +55,7 @@ angular.module('bestOfYoutubeApp')
     		// Going into each group
     		snapshot.forEach(function(childSnapshot) {
     			// Going into object of each group
-    			var best = {test: "hello", upvotes: 0};
+    			var best = {upvotes: 0};
     			console.log("Best Upvotes: " + best.upvotes);
     			childSnapshot.forEach(function(newSnap) {
     			console.log("Snapshot Upvotes: " + newSnap.val().upvotes);
